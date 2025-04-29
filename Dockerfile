@@ -14,6 +14,9 @@ RUN npm ci --only=production
 COPY . .
 
 ENV NODE_OPTIONS=--openssl-legacy-provider
+# Before build step
+RUN rm -rf node_modules package-lock.json && npm install
+
 
 # Build the React app
 RUN npm run build
