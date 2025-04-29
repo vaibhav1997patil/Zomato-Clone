@@ -13,6 +13,8 @@ RUN npm ci --only=production
 # Copy the rest of the application source code
 COPY . .
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Build the React app
 RUN npm run build
 
